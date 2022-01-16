@@ -1,0 +1,32 @@
+{
+    "name": "tipping-backend",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "dependencies": {
+        "async": "^3.2.1",
+        "bcrypt": "^4.0.0",
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "crypto": "^1.0.1",
+        "debug": "~2.6.9",
+        "express": "~4.16.1",
+        "express-fileupload": "^1.2.1",
+        "fcm-node": "^1.6.1",
+        "handlebars": "^4.7.7",
+        "http-errors": "~1.6.3",
+        "jade": "~1.11.0",
+        "jsonwebtoken": "^8.5.1",
+        "moment": "^2.29.1",
+        "mongoose": "^5.13.9",
+        "morgan": "~1.9.1",
+        "node-cron": "^2.0.3",
+        "nodemailer": "^6.6.3",
+        "nodemon": "^2.0.12",
+        "request": "^2.88.2",
+        "swagger-ui-express": "^4.1.6",
+        "xml2js": "^0.4.23"
+    }
+}

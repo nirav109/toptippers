@@ -1,0 +1,297 @@
+footer{
+    position: fixed;
+    padding: 20px;
+    text-align: center;
+    background-color: #ded7d7;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+.ant-layout {
+	/* height: 100vh; */
+}
+.ant-layout .ant-layout-header {
+    height: 64px;
+    padding: 0 25px;
+    line-height: 56px;
+    background: rgb(255, 255, 255);
+}
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+a {
+	text-decoration: none !important;
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Kaushan Script', cursive;
+}
+
+.myform {
+	/* position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 1rem;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 1.1rem;
+	outline: 0;
+	max-width: 500px; */
+	position: absolute;
+    top: 45%;
+    left: 50%;
+    margin: -250px 0 0 -160px;
+    width: 320px;
+    min-height: 320px;
+	padding: 36px;
+	box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+}
+
+.tx-tfm {
+	text-transform: uppercase;
+}
+
+.mybtn {
+	border-radius: 50px;
+}
+
+.login-or {
+	position: relative;
+	color: #aaa;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.span-or {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: -2px;
+	margin-left: -25px;
+	background-color: #fff;
+	width: 50px;
+	text-align: center;
+}
+
+.hr-or {
+	height: 1px;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.google {
+	color: #666;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	outline: none;
+	border: 1px solid lightgrey;
+}
+img {
+	max-width: 100%;
+}
+.profileDetails .badge {
+	color: #ffffff;
+	font-size: 12px;
+}
+.listingPage {
+	margin: 30px 0;
+}
+.listingPage .ListItems {
+	margin-top: 30px;
+}
+.additional {
+	font-size: 16px;
+}
+.additional:last-child {
+	margin-top: 15px;
+}
+.additional .price {
+	color: #e6c041;
+	font-weight: 700;
+	font-size: 20px;
+}
+.additional .price .socialIcon a {
+	color: #4e4e4e;
+	font-weight: normal;
+	margin: 0 0 0 10px;
+}
+.category {
+	color: #e6c041;
+	font-weight: 700;
+}
+.gx-user-popover {
+	margin: 0;
+	padding: 0;
+}
+.gx-user-popover li {
+	display: block;
+}
+
+.ratingBox {
+	margin: 15px 0 0 0
+	;
+}
+
+.proImageBox .ant-card-body {
+	display: none;
+}
+.ant-layout-has-sider .ant-layout-sider {
+	z-index: 10;
+}
+.ant-layout-has-sider .ant-layout-footer {
+	padding: 4px;
+}
+.ant-layout-has-sider .ant-layout-sider, .ant-layout-has-sider .ant-menu-dark {
+	background: #E08300;
+}
+.ant-layout-has-sider .ant-menu.ant-menu-dark .ant-menu-item-selected {
+	background: #4f4f4f;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-item {
+	color: #4f4f4f;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-item:hover {
+	color: #4f4f4f;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-submenu {
+	color: #4f4f4f;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-submenu-title {
+	color: #4f4f4f;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-submenu:hover {
+	color: #4f4f4f;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-submenu-title:hover {
+	color: #4f4f4f;
+}
+.ant-layout-sider-collapsed .logo {
+	width: 35px;
+	margin-left: 22px;
+	overflow: hidden;
+}
+.ant-layout-sider-collapsed .logo img {
+	width: 140px;
+	max-width: inherit;
+}
+body a {
+	color: #e6c041;
+}
+body a:hover {
+	color: #e6c041;
+	text-decoration: underline;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+	background: #4f4f4f;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-inline.ant-menu-sub .ant-menu-item {
+	color: #ffffff;
+}
+.ant-layout-has-sider .ant-menu-dark .ant-menu-submenu .ant-menu-submenu-title .ant-menu-submenu-arrow:before,
+.ant-layout-has-sider .ant-menu-dark .ant-menu-submenu .ant-menu-submenu-title .ant-menu-submenu-arrow:after,
+.ant-layout-has-sider .ant-menu-dark .ant-menu-submenu .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before,
+.ant-layout-has-sider .ant-menu-dark .ant-menu-submenu .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after {
+	background: #4f4f4f;
+}
+.overflowBox {
+	overflow: hidden;
+}
+#root, .ant-layout {
+	height: 100%;
+}
+.ant-statistic .ant-statistic-title {
+	font-size: 20px;
+}
+
+.box {
+    position: relative;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: .375rem;
+}
+.box-default {
+    background-color: #fff;
+}
+.box-default .box-header {
+    padding: .75rem 1.25rem;
+    border-radius: .375rem .375rem 0 0;
+    font-size: .875rem;
+    border-bottom: 1px solid transparent;
+    font-weight: 500;
+}
+.box-default .box-body {
+    padding: 1.25rem;
+    border-radius: 0 0 .375rem .375rem;
+}
+body .ant-switch-checked {
+    background-color: #17a2b8;
+}
+.gx-login-container{
+	position: relative;
+    height: 100%;
+    padding-bottom: 30px;
+    flex: 1 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.gx-login-content{
+	max-width: 420px;
+    width: 94%;
+    margin: auto;
+    padding: 35px 35px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 2px rgba(0,0,0,.35);
+    font-size: 14px;
+}
+.gx-login-header{
+	margin-bottom: 30px;
+}
+.gx-text-center{
+	text-align: center!important;
+}
+.gx-login-title{
+	color:#535353;
+	font-size: 24px;
+}
+
+.l_hgt0 .ant-form-item-label{line-height: 0px !important;}
+
+.img-104 {
+	height: 104px;
+}
+.ht_200{
+	height: 200px;
+	overflow: hidden;
+}
+.ht_300{
+	height: 300px;
+	overflow: hidden;
+}
+.ht_150{
+	height: 150px;
+	overflow: hidden;
+}
+.cursor-pointer{
+	cursor: pointer;
+  }
+  .logo{
+	  text-align: center;
+	  font-family: 'Times New Roman', Times, serif;
+	  font-size: 20px
+  }

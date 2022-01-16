@@ -1,0 +1,3160 @@
+{
+    "swagger": "2.0",
+    "title": "Rugby Tipping Api Swagger",
+    "description": "Swagger Api Tool for Rugby Tipping App",
+    "version": "1.0.0",
+    "host": "localhost:8000",
+    "basePath": "/api",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "JWT": {
+            "type": "apiKey",
+            "in": "query",
+            "name": "api_key"
+        }
+    },
+    "security": [
+        {
+            "JWT": []
+        }
+    ],
+    "responses": {
+        "UnauthorizedError": {
+            "description": "Access token is missing or invalid"
+        }
+    },
+    "paths": {
+        "/f/user/register": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "add new user ",
+                "description": "add new user",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add new user ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addNewUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/f/user/registerUser": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "registerUser",
+                " consumes": "multipart/form-data",
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "description": "Add/Update document file",
+                        "type": "file"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "description": "name data",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "email",
+                        "description": "email data",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "dob",
+                        "description": "dob data",
+                        "type": "string",
+                        "required": "true"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "password",
+                        "description": "password data",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/f/user/userLogin": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "login user ",
+                "description": "login user",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "login user ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/loginUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/f/user/userLogout": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "logout user ",
+                "description": "logout user",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "logout user ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/logoutUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/listUser": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "List the registered User ",
+                "description": "List the registered User",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "List the registered User",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/listUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/f/user/forgotPassword": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "User forgot Password",
+                "description": "User forgot Password",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "User forgot Password",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/forgotPassword"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/f/user/resetPassword": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Reset Password",
+                "description": "Reset Password",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Reset Password",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/resetPassword"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "$ref": "#definitions/appResponse"
+                    },
+                    "400": {
+                        "description": "Error",
+                        "$ref": "#definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/f/user/updateToken": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Update Token",
+                "description": "Update Token",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update Token",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/updateToken"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "$ref": "#definitions/appResponse"
+                    },
+                    "400": {
+                        "description": "Error",
+                        "$ref": "#definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/user/inviteUsers": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Invite Users ",
+                "description": "Invite Users",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "InviteUsers",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/inviteUsers"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/emailTemplate/addEmailTemplate": {
+            "post": {
+                "tags": [
+                    "Email Template Module"
+                ],
+                "summary": "Add Template",
+                "description": "Add Template",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Add Template",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addEmailTemplate"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/role/addRole": {
+            "post": {
+                "tags": [
+                    "Role Module"
+                ],
+                "summary": "add new role ",
+                "description": "add new role",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add new role ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addRole"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/deleteUser": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Delete User",
+                "description": "Delete User",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Delete User",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/deleteUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/updateFavCompetition": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Update Fav Competition",
+                "description": "Update Fav Competition",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update Fav Competition",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/updateFavCompetition"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/updateFavSport": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Update Fav Sport",
+                "description": "Update Fav Sport",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update Fav Sport",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/updateFavSport"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/updateProfile": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Update profile",
+                "description": "Update profile",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update profile",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/updateName"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/updateKingBotNotification": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Update King Bot Notification",
+                "description": "Update King Bot Notification",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update King Bot Notification",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/updateKingBotNotification"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/changePassword": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Change Password",
+                "description": "Change Password",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Change Password",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/changePassword"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "$ref": "#definitions/appResponse"
+                    },
+                    "400": {
+                        "description": "Error",
+                        "$ref": "#definitions/errorResponse"
+                    }
+                }
+            }
+        },
+        "/user/getUserDetails": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "get User Detail based on userId",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "get User Detail",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/getUserDetails"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/updateProfilePic": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "updateProfilePic",
+                " consumes": "multipart/form-data",
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "description": "Add/Update document file",
+                        "type": "file",
+                        "required": "true"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "userId",
+                        "description": "user Id",
+                        "type": "string",
+                        "required": "true"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/deActivateUser": {
+            "post": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Change User isActive status",
+                "description": "Change User isActive status",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Change User isActive status",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/deActivateUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/f/user/getFindUsers": {
+            "get": {
+                "tags": [
+                    "User Module"
+                ],
+                "summary": "Find Users",
+                "description": "Find Users",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search",
+                        "required": "true"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "Skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/sport/addSport": {
+            "post": {
+                "tags": [
+                    "Sports Module"
+                ],
+                "summary": "add new sport ",
+                "description": "add new sport",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add new sport ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addSport"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/sport/listSport": {
+            "post": {
+                "tags": [
+                    "Sports Module"
+                ],
+                "summary": "List the sports ",
+                "description": "List the sport",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "List the sport",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/listSport"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/sport/getSports": {
+            "get": {
+                "tags": [
+                    "Sports Module"
+                ],
+                "summary": "List the sports ",
+                "description": "List the sport",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "user Id",
+                        "required": "true"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/sport/deleteSport": {
+            "post": {
+                "tags": [
+                    "Sports Module"
+                ],
+                "summary": "Delete Sport",
+                "description": "Delete Sport",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Delete Sport",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/deleteSport"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/sport/updateSport": {
+            "post": {
+                "tags": [
+                    "Sports Module"
+                ],
+                "summary": "Update Sport",
+                "description": "Update Sport",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update Sport",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/editSport"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/sport/getSportDetail": {
+            "post": {
+                "tags": [
+                    "Sports Module"
+                ],
+                "summary": "get Sport Detail based on sportId",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "get Sport Detail",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/getSportDetail"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/sport/addupdateSport": {
+            "post": {
+                "tags": [
+                    "Sports Module"
+                ],
+                "summary": "add/update  sport ",
+                "description": "add/update  sport",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add new sport ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addupdateSport"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/bonus/addBonus": {
+            "post": {
+                "tags": [
+                    "Bonus Module"
+                ],
+                "summary": "add new bonus ",
+                "description": "add new bonus",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add new bonus ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addBonus"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/bonus/addUserBonus": {
+            "post": {
+                "tags": [
+                    "Bonus Module"
+                ],
+                "summary": "add user bonus ",
+                "description": "add user bonus",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add user bonus ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addUserBonus"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/bonus/listBonus": {
+            "post": {
+                "tags": [
+                    "Bonus Module"
+                ],
+                "summary": "List the bonuses ",
+                "description": "List the bonuses",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "List the bonuses",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/listBonus"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/game/addGames": {
+            "post": {
+                "tags": [
+                    "Game Module"
+                ],
+                "summary": "add new game ",
+                "description": "add new game",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add new game ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addGame"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/game/listGames": {
+            "post": {
+                "tags": [
+                    "Game Module"
+                ],
+                "summary": "List the games ",
+                "description": "List the games",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "List the games",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/listGame"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/game/getGames": {
+            "get": {
+                "tags": [
+                    "Game Module"
+                ],
+                "summary": "List the games",
+                "description": "List the games",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "user Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "roundId",
+                        "in": "query",
+                        "description": "round Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ladder/getSeasonLadder": {
+            "get": {
+                "tags": [
+                    "Ladder Module"
+                ],
+                "summary": "List the team ladder",
+                "description": "List team ladder",
+                "parameters": [
+                    {
+                        "name": "sportId",
+                        "in": "query",
+                        "description": "sportId",
+                        "required": "true"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ladder/getFormGuide": {
+            "get": {
+                "tags": [
+                    "Ladder Module"
+                ],
+                "summary": "List the form guide",
+                "description": "List form guid",
+                "parameters": [
+                    {
+                        "name": "gameId",
+                        "in": "query",
+                        "description": "gameId",
+                        "required": "true"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ladder/getFormGuideHeadToHead": {
+            "get": {
+                "tags": [
+                    "Ladder Module"
+                ],
+                "summary": "List the form guide head to head",
+                "description": "List form guid head to head",
+                "parameters": [
+                    {
+                        "name": "gameId",
+                        "in": "query",
+                        "description": "gameId",
+                        "required": "true"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ladder/getCompLadder": {
+            "get": {
+                "tags": [
+                    "Ladder Module"
+                ],
+                "summary": "List the comp ladder",
+                "description": "List comp ladder",
+                "parameters": [
+                    {
+                        "name": "compId",
+                        "in": "query",
+                        "description": "comp Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ladder/getNewHome": {
+            "get": {
+                "tags": [
+                    "Ladder Module"
+                ],
+                "summary": "get new home data",
+                "description": "get new home data",
+                "parameters": [
+                    {
+                        "name": "compId",
+                        "in": "query",
+                        "description": "comp Id"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "user Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "sportId",
+                        "in": "query",
+                        "description": "sport Id"
+                    }
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ladder/getLiveGames": {
+            "get": {
+                "tags": [
+                    "Ladder Module"
+                ],
+                "summary": "get live games data",
+                "description": "get live games data",
+                "parameters": [
+                    {
+                        "name": "roundId",
+                        "in": "query",
+                        "description": "round Id"
+                    },
+                    {
+                        "name": "compId",
+                        "in": "query",
+                        "description": "comp Id"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ladder/getHeaterBonus": {
+            "get": {
+                "tags": [
+                    "Ladder Module"
+                ],
+                "summary": "get heater bonus data",
+                "description": "get heater bonus data",
+                "parameters": [
+                    {
+                        "name": "roundId",
+                        "in": "query",
+                        "description": "round Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "user Id",
+                        "required": "true"
+                    }
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/game/deleteGame": {
+            "post": {
+                "tags": [
+                    "Game Module"
+                ],
+                "summary": "Delete Game",
+                "description": "Delete Game",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Delete Game",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/deleteGame"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/game/updateGame": {
+            "post": {
+                "tags": [
+                    "Game Module"
+                ],
+                "summary": "Update Game",
+                "description": "Update Game",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update Game",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/editGame"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/game/getGameDetails": {
+            "post": {
+                "tags": [
+                    "Game Module"
+                ],
+                "summary": "get Game Detail based on GameId",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "get Game Detail",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/getGameDetail"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/round/addRound": {
+            "post": {
+                "tags": [
+                    "Round Module"
+                ],
+                "summary": "add new round ",
+                "description": "add new round",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add new round ",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addRound"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/round/listRounds": {
+            "post": {
+                "tags": [
+                    "Round Module"
+                ],
+                "summary": "List the rounds ",
+                "description": "List the rounds",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "List the rounds",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/listRound"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/round/getRounds": {
+            "get": {
+                "tags": [
+                    "Round Module"
+                ],
+                "summary": "List the rounds ",
+                "description": "List the rounds",
+                "parameters": [
+                    {
+                        "name": "sportId",
+                        "in": "query",
+                        "description": "List the rounds",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/getRounds"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/round/getCurrentRound": {
+            "get": {
+                "tags": [
+                    "Round Module"
+                ],
+                "summary": "Get current round",
+                "description": "Get current round",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "user Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "sportId",
+                        "in": "query",
+                        "description": "sport Id",
+                        "required": "true"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/round/deleteRound": {
+            "post": {
+                "tags": [
+                    "Round Module"
+                ],
+                "summary": "Delete Round",
+                "description": "Delete Round",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Delete Round",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/deleteRound"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/round/blockRound": {
+            "post": {
+                "tags": [
+                    "Round Module"
+                ],
+                "summary": "Block Round",
+                "description": "Block Round",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Block Round",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/blockRound"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/round/getRoundDetail": {
+            "post": {
+                "tags": [
+                    "Round Module"
+                ],
+                "summary": "get Game Detail based on RoundId",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "get Round Details",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/getRoundDetail"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/competition/addCompetition": {
+            "post": {
+                "tags": [
+                    "Competition Module"
+                ],
+                "summary": "add competition",
+                "description": "add competition",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add competition",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addCompetition"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/competition/joinCompetition": {
+            "post": {
+                "tags": [
+                    "Competition Module"
+                ],
+                "summary": "join competition",
+                "description": "join competition",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "join competition",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/joinCompetition"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/competition/leaveCompetition": {
+            "post": {
+                "tags": [
+                    "Competition Module"
+                ],
+                "summary": "leave competition",
+                "description": "leave competition",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "leave competition",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/leaveCompetition"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/competition/getJoinedCompetitions": {
+            "get": {
+                "tags": [
+                    "Competition Module"
+                ],
+                "summary": "get joined competitions",
+                "description": "get joined competitions",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "user Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/competition/getJoinedBonusCompetitions": {
+            "get": {
+                "tags": [
+                    "Competition Module"
+                ],
+                "summary": "get joined competitions",
+                "description": "get joined competitions",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "user Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "sportId",
+                        "in": "query",
+                        "description": "sport Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "roundId",
+                        "in": "query",
+                        "description": "round Id",
+                        "required": "true"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/competition/getFindCompetitions": {
+            "get": {
+                "tags": [
+                    "Competition Module"
+                ],
+                "summary": "get find competitions",
+                "description": "get find competitions",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "userId",
+                        "required": "true"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search",
+                        "required": "true"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/competition/validateCompetition": {
+            "get": {
+                "tags": [
+                    "Competition Module"
+                ],
+                "summary": "validate competitions",
+                "description": "validate competitions",
+                "parameters": [
+                    {
+                        "name": "competitionname",
+                        "in": "query",
+                        "description": "competition name",
+                        "required": "true"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/content/getContent": {
+            "get": {
+                "tags": [
+                    "CMS Module"
+                ],
+                "summary": "get content",
+                "description": "get content",
+                "parameters": [
+                    {
+                        "name": "contentType",
+                        "in": "query",
+                        "description": "content type",
+                        "required": "true"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/topic/getTopics": {
+            "get": {
+                "tags": [
+                    "CMS Module"
+                ],
+                "summary": "get topics",
+                "description": "get topics",
+                "parameters": [
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/question/getQuestions": {
+            "get": {
+                "tags": [
+                    "CMS Module"
+                ],
+                "summary": "get questions",
+                "description": "get questions",
+                "parameters": [
+                    {
+                        "name": "topicId",
+                        "in": "query",
+                        "description": "topicId",
+                        "required": "false"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "required": "false"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "skip",
+                        "required": "false"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/tipping/addTipping": {
+            "post": {
+                "tags": [
+                    "Tipping Module"
+                ],
+                "summary": "add tipping",
+                "description": "add tipping",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "add tipping",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/addTipping"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/tipping/addAutoTipping": {
+            "get": {
+                "tags": [
+                    "Tipping Module"
+                ],
+                "summary": "Add auto tipping",
+                "description": "Add auto tipping",
+                "parameters": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ad/updateAdClick": {
+            "post": {
+                "tags": [
+                    "Ad Module"
+                ],
+                "summary": "update ad click",
+                "description": "update ad click",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "update ad click",
+                        "required": "true",
+                        "schema": {
+                            "$ref": "#definitions/updateAduser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ad/getAds": {
+            "get": {
+                "tags": [
+                    "Ad Module"
+                ],
+                "summary": "get ads",
+                "description": "get ads",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "type",
+                        "required": "true"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#definitions/appResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#definitions/errorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    
+    },
+
+    "_comment": "Complex objects have schema definitions",
+    "definitions": {
+        "appResponse": {
+            "required": "message",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "number"
+                }
+            }
+        },
+        "errorResponse": {
+            "required": "message",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "addNewUser": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "loginUser": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "device_token": {
+                    "type": "string"
+                },
+                "device_type": {
+                    "type": "string"
+                },
+                "device_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "logoutUser": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "forgotPassword": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "resetPassword": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "resetKey_value": {
+                    "type": "string"
+                }
+            }
+        },
+        "addEmailTemplate": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "template_code": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                }
+            }
+        },
+        "addRole": {
+            "type": "object",
+            "properties": {
+                "rolename": {
+                    "type": "string"
+                }
+            }
+        },
+        "deleteUser": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "editUser": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "updateFavCompetition": {
+            "type": "object",
+            "properties": {
+                "compId": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "updateFavSport": {
+            "type": "object",
+            "properties": {
+                "sportId": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "updateName": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "updateKingBotNotification": {
+            "type": "object",
+            "properties": {
+                "isKingBotNotification": {
+                    "type": "boolean"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "changePassword": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "new_password": {
+                    "type": "string"
+                }
+            }
+        },
+        "updateToken": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "platform": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "verifyEmail": {
+            "type": "object",
+            "properties": {
+                "verification_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "getUserDetails": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "deActivateUser": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "getFindUsers": {
+            "type": "object",
+            "properties": {
+                "search": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "string"
+                },
+                "skip": {
+                    "type": "string"
+                }
+            }
+        },
+        "listUser": {
+            "type": "object",
+            "properties": {
+                "search_string": {
+                    "type": "string"
+                }
+            }
+        },
+        "addSport": {
+            "type": "object",
+            "properties": {
+                "sportname": {
+                    "type": "string"
+                }
+            }
+        },
+        "addupdateSport": {
+            "type": "object",
+            "properties": {
+                "sportname": {
+                    "type": "string"
+                },
+                "descrition": {
+                    "type": "string"
+                },
+                "sportId": {
+                    "type": "string"
+                }
+            }
+        },
+        "listSport": {
+            "type": "object",
+            "properties": {
+                "search_string": {
+                    "type": "string"
+                }
+            }
+        },
+        "deleteSport": {
+            "type": "object",
+            "properties": {
+                "sportId": {
+                    "type": "string"
+                }
+            }
+        },
+        "editSport": {
+            "type": "object",
+            "properties": {
+                "sportId": {
+                    "type": "string"
+                },
+                "sportname": {
+                    "type": "string"
+                }
+            }
+        },
+        "getSportDetail": {
+            "type": "object",
+            "properties": {
+                "sportId": {
+                    "type": "string"
+                }
+            }
+        },
+        "addBonus": {
+            "type": "object",
+            "properties": {
+                "bonusname": {
+                    "type": "string"
+                }
+            }
+        },
+        "addUserBonus": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                },
+                "roundId": {
+                    "type": "string"
+                },
+                "userBonus": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "compId": {
+                                "type": "string"
+                            },
+                            "currentBonus": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "listBonus": {
+            "type": "object",
+            "properties": {
+                "search_string": {
+                    "type": "string"
+                }
+            }
+        },
+        "addGame": {
+            "type": "object",
+            "properties": {
+                "gameTitle": {
+                    "type": "string"
+                },
+                "sportId": {
+                    "type": "string"
+                },
+                "gameState": {
+                    "type": "string"
+                },
+                "homeTeam": {
+                    "type": "string"
+                },
+                "awayTeam": {
+                    "type": "string"
+                },
+                "season": {
+                    "type": "string"
+                },
+                "gameDate": {
+                    "type": "string"
+                },
+                "gameId": {
+                    "type": "string"
+                }
+            }
+        },
+        "getGameDetail": {
+            "type": "object",
+            "properties": {
+                "gameId": {
+                    "type": "string"
+                }
+            }
+        },
+        "listGame": {
+            "type": "object",
+            "properties": {
+                "search_string": {
+                    "type": "string"
+                }
+            }
+        },
+        "editGame": {
+            "type": "object",
+            "properties": {
+                "gameTitle": {
+                    "type": "string"
+                },
+                "sportId": {
+                    "type": "string"
+                },
+                "gameState": {
+                    "type": "string"
+                },
+                "homeTeam": {
+                    "type": "string"
+                },
+                "awayTeam": {
+                    "type": "string"
+                },
+                "season": {
+                    "type": "string"
+                },
+                "homeTeampoints": {
+                    "type": "string"
+                },
+                "awayTeampoints": {
+                    "type": "string"
+                },
+                "gameId": {
+                    "type": "string"
+                }
+            }
+        },
+        "deleteGame": {
+            "type": "object",
+            "properties": {
+                "gameId": {
+                    "type": "string"
+                }
+            }
+        },
+        "addRound": {
+            "type": "object",
+            "properties": {
+                "roundname": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "sportId": {
+                    "type": "string"
+                }
+            }
+        },
+        "getRoundDetail": {
+            "type": "object",
+            "properties": {
+                "roundId": {
+                    "type": "string"
+                }
+            }
+        },
+        "listRound": {
+            "type": "object",
+            "properties": {
+                "search_string": {
+                    "type": "string"
+                }
+            }
+        },
+        "getRounds": {
+            "type": "object",
+            "properties": {
+                "sportId": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockRound": {
+            "type": "object",
+            "properties": {
+                "roundId": {
+                    "type": "string"
+                }
+            }
+        },
+        "deleteRound": {
+            "type": "object",
+            "properties": {
+                "RoundId": {
+                    "type": "string"
+                }
+            }
+        },
+        "addCompetition": {
+            "type": "object",
+            "properties": {
+                "competitionname": {
+                    "type": "string"
+                },
+                "isPublic": {
+                    "type": "boolean"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "sportId": {
+                    "type": "string"
+                },
+                "creatorId": {
+                    "type": "string"
+                },
+                "bonus2xpoint": {
+                    "type": "string"
+                },
+                "bonus3xpoint": {
+                    "type": "string"
+                },
+                "bonuspoint": {
+                    "type": "string"
+                }
+            }
+        },
+        "joinCompetition": {
+            "type": "object",
+            "properties": {
+                "competitionId": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "leaveCompetition": {
+            "type": "object",
+            "properties": {
+                "competitionId": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "addTipping": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                },
+                "tippings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "gameId": {
+                                "type": "string"
+                            },
+                            "bettingTeam": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "inviteUsers": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                },
+                "compId": {
+                    "type": "string"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "updateAduser": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string"
+                },
+                "adId": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
